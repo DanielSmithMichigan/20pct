@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <style type="text/css">
+        /* General Styling */
+        html,
+        body {
+            background-color: #361999;
+            font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .page-container {
+            margin: 100px;
+            grid-gap: 6px;
+        }
+
+        .page-container>div {
+            color: #ededed;
+            font-weight: bold;
+            font-size: 16pt;
+            border: 2px solid #FF6495 !important;
+            color: white;
+        }
+
+        .page-container .menu-container {
+            border: 2px solid #78FFF1 !important;
+            color: white;
+        }
+
+        .page-container .theme {
+            border: 2px solid #78FFF1 !important;
+            color: white;
+        }
+
+        .page-container .menu-container a {
+            font-size: 16pt;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .page-container .menu {
+            width: 100%;
+            height: 100%;
+        }
+
+        .page-container .menu .menu-header {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+
+        .page-container .theme {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+
+
+
+        /* Grid One Start */
+
+        .page-container {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 100px auto 100px;
+            grid-template-areas:
+                'header'
+                'themes-container'
+                'footer'
+            ;
+        }
+
+        .page-container .header {
+            grid-area: header;
+        }
+
+        .page-container .themes-container {
+            grid-area: themes-container;
+        }
+
+        .page-container .footer {
+            grid-area: footer;
+        }
+
+        /* Grid One End */
+
+        /* Grid Two Start */
+
+        .themes-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+        }
+
+        /* Grid Two End */
+
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        function menuOnLeft() {
+            document.getElementById('menu-container')
+                .classList.add('left');
+            document.getElementById('menu-container')
+                .classList.remove('right');
+        }
+        function menuOnRight() {
+            document.getElementById('menu-container')
+                .classList.add('right');
+            document.getElementById('menu-container')
+                .classList.remove('left');
+        }
+    </script>
+    <div class="page-container">
+        <div class="header">
+            Header
+        </div>
+        <div class="themes-container">
+            <div class='theme'>1</div>
+            <div class='theme'>2</div>
+            <div class='theme'>3</div>
+            <div class='theme'>4</div>
+        </div>
+        <div class="footer">
+            Footer
+        </div>
+    </div>
+</body>
+
+</html>

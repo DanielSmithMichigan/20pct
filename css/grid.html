@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <style type="text/css">
+        /* General Styling */
+        html,
+        body {
+            background-color: #361999;
+            font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .page-container {
+            margin: 100px;
+            grid-gap: 6px;
+        }
+
+        .page-container>div {
+            color: #ededed;
+            font-weight: bold;
+            font-size: 16pt;
+            border: 2px solid #FF6495 !important;
+            color: white;
+        }
+
+        .page-container .box {
+            border: 2px solid #78FFF1 !important;
+            color: white;
+        }
+
+        .page-container .menu-container a {
+            font-size: 16pt;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .page-container .menu {
+            width: 100%;
+            height: 100%;
+        }
+
+        .page-container .menu .menu-header {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+
+        .page-container .box {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+
+
+
+        /* Grid One Start */
+
+        .page-container {
+            display: grid;
+            grid-template-columns: 100px auto;
+            grid-template-rows: 100px auto 100px;
+            grid-template-areas:
+                'header header'
+                'menu-container boxes-container'
+                'footer footer'
+            ;
+        }
+
+        .page-container.right {
+            grid-template-columns: auto 100px;
+            grid-template-areas:
+                'header header'
+                'boxes-container menu-container '
+                'footer footer'
+            ;
+        }
+
+        @media (max-width: 1000px) {
+            .page-container {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: 100px 100px auto 100px;
+                grid-template-areas:
+                    'header'
+                    'menu-container'
+                    'boxes-container'
+                    'footer'
+                ;
+            }
+        }
+
+        .page-container .header {
+            grid-area: header;
+        }
+
+        .page-container .menu-container {
+            grid-area: menu-container;
+        }
+
+        .page-container .boxes-container {
+            grid-area: boxes-container;
+        }
+
+        .page-container .footer {
+            grid-area: footer;
+        }
+
+        /* Grid One End */
+
+
+
+        /* Grid Two Start */
+
+        .boxes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+        }
+
+        /* Grid Two End */
+
+
+
+        /* Grid Three Start */
+
+        .menu-container {
+            display: grid;
+            grid-template-rows: repeat(auto-fill, 1fr);
+        }
+
+        .menu-container a {
+            display: inline-block;
+        }
+
+        @media (max-width: 1000px) {
+            .menu-container {
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: 1fr;
+            }
+        }
+
+        /* Grid Three End */
+
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        function menuOnLeft() {
+            document.getElementById('page-container')
+                .classList.add('left');
+            document.getElementById('page-container')
+                .classList.remove('right');
+        }
+        function menuOnRight() {
+            document.getElementById('page-container')
+                .classList.add('right');
+            document.getElementById('page-container')
+                .classList.remove('left');
+        }
+    </script>
+    <div class="page-container left" id="page-container">
+        <div class="header">
+            Header
+        </div>
+        <div class="menu-container" id="menu-container">
+            <a href="#" onclick="menuOnLeft()"> Left </a>
+            <a href="#" onclick="menuOnRight()"> Right </a>
+            <a href="#"> Link 3 </a>
+            <a href="#"> Link 4 </a>
+            <a href="#"> Link 5 </a>
+            <a href="#"> Link 6 </a>
+        </div>
+        <div class="boxes-container">
+            <div class='box'>1</div>
+            <div class='box'>2</div>
+            <div class='box'>3</div>
+            <div class='box'>4</div>
+            <div class='box'>5</div>
+            <div class='box'>6</div>
+            <div class='box'>7</div>
+            <div class='box'>8</div>
+            <div class='box'>9</div>
+        </div>
+        <div class="footer">
+            Footer
+        </div>
+    </div>
+</body>
+
+</html>
